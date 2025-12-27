@@ -1,5 +1,5 @@
 
-# 📍 ResolveX: Smart Grievance Resolution Platform
+# ResolveX: Smart Grievance Resolution Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Firebase](https://img.shields.io/badge/Firebase-v10-orange?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
@@ -7,6 +7,18 @@
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](./LICENSE)
 
 ResolveX is an all-in-one platform for reporting, tracking, and resolving civic issues. It connects citizens directly with local authorities, using real-time data and AI-driven insights to build safer, more responsive communities.
+
+---
+
+## 🏆 GOOGLE H25 Hack Ananta Hackathon
+
+This project was proudly developed by **Panda Gang** for the GOOGLE H25 Hack Ananta hackathon.
+
+### Team Members
+-   **Rohan Das** (Team Leader) - `2420080057`
+-   **Sai Praneetha Oruganty** - `2420080061`
+-   **M Nikhileshwar Reddy** - `2420080064`
+-   **Amrutha Reddy** - `2420080079`
 
 ---
 
