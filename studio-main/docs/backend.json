@@ -1,0 +1,133 @@
+
+{
+  "entities": {
+    "Grievance": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Grievance",
+      "type": "object",
+      "description": "Represents a grievance submitted by a user.",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID of the user who submitted the grievance."
+        },
+        "userName": {
+          "type": "string",
+          "description": "Name of the user who submitted the grievance."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the grievance."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the image associated with the grievance.",
+          "format": "uri"
+        },
+        "location": {
+          "type": "object",
+          "description": "GeoPoint of the grievance location.",
+          "properties": {
+            "latitude": { "type": "number" },
+            "longitude": { "type": "number" }
+          },
+          "required": ["latitude", "longitude"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the grievance was submitted.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of the grievance (e.g., submitted, in progress, resolved).",
+          "enum": ["Submitted", "In Progress", "Resolved"]
+        },
+        "riskScore": {
+            "type": "number",
+            "description": "AI-generated risk score (0-100)."
+        },
+        "aiNotes": {
+            "type": "string",
+            "description": "Notes from AI analysis."
+        }
+      },
+      "required": [
+        "userId",
+        "userName",
+        "description",
+        "imageUrl",
+        "location",
+        "createdAt",
+        "status"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the application.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the user's profile picture."
+        },
+        "grievanceCount": {
+          "type": "number",
+          "description": "The number of grievances reported by the user."
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Whether the user has admin privileges."
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "imageUrl",
+        "grievanceCount"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/entities/UserProfile"
+          },
+          "description": "Stores user profiles. The document ID is the user's UID from Firebase Auth."
+        }
+      },
+      {
+        "path": "/grievances/{grievanceId}",
+        "definition": {
+          "entityName": "Grievance",
+          "schema": {
+            "$ref": "#/entities/Grievance"
+          },
+          "description": "A top-level collection storing all grievances. This allows for efficient querying by admins across all users."
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure has been updated to use a top-level `grievances` collection. This is more scalable and efficient for an admin-focused application, as it allows administrators to query, filter, and view all grievances across all users without needing to perform complex, nested queries. The previous structure (nesting grievances under users) is good for strict user-data separation but makes global queries difficult. In this model, security rules will still enforce that a user can only create grievances with their own `userId`, and admins will have broader read access."
+  }
+}
