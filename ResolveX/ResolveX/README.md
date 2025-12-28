@@ -1,5 +1,5 @@
 
-# ResolveX: Smart Grievance Resolution Platform
+# 📍 ResolveX: Smart Grievance Resolution Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Firebase](https://img.shields.io/badge/Firebase-v10-orange?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
@@ -7,6 +7,13 @@
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](./LICENSE)
 
 ResolveX is an all-in-one platform for reporting, tracking, and resolving civic issues. It connects citizens directly with local authorities, using real-time data and AI-driven insights to build safer, more responsive communities.
+
+---
+
+## 🚀 Live Demo & Video
+
+-   **View the Live MVP:** [**[YOUR_DEPLOYMENT_LINK_HERE]**](https://studio--studio-687393081-9652d.us-central1.hosted.app/)
+-   **Watch the Demo Video:** [**[YOUTUBE_OR_VIMEO_LINK_HERE]**](https://drive.google.com/file/d/1gHUWP16AwLBdjJo_4I2q1WPjEMF_IP_H/view?usp=sharing)
 
 ---
 
